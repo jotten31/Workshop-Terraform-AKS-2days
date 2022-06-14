@@ -34,12 +34,9 @@ jobs:
           
   # Generates an execution plan for Terraform with tfplan file https://www.terraform.io/cli/commands/plan
 
-  Terraform_Plan:
-
+  Terraform-plan:
     runs-on: ubuntu-latest
-    
-      steps:
-    
+    steps:
       - name: Terraform Plan
         run: |
           cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform
