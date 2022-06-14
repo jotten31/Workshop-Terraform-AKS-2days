@@ -1,4 +1,4 @@
-name: 2 - Workflow CI/CD Terraform
+name: 22 - Workflow CI/CD Terraform
 
 on:
   workflow_dispatch:
