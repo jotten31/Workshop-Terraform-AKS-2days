@@ -1,6 +1,5 @@
 name: 2 - Workflow CI/CD Terraform
 
-
 on:
   workflow_dispatch:
 
@@ -45,14 +44,14 @@ jobs:
           -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
           -var 'AzureClientID=${{ secrets.CLIENTID }}' \
           -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-          -lock=false -out=monplan.tfplan
+          -lock=false -out=tf.plan
           ls -lisa
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: ArtifactTerraform
-          path: ./Terraform/Lab4_Pipeline_CI_CD_Terraform/monplan.tfplan
+          path: ./Terraform/Lab4_Pipeline_CI_CD_Terraform/tf.plan
            
   Terraform-apply:
     runs-on: ubuntu-latest
@@ -82,6 +81,6 @@ jobs:
       - name: Terraform Apply
         run: |
           cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform
-          terraform apply -lock=false "monplan.tfplan"
+          terraform apply -lock=false "tf.plan"
         
       
