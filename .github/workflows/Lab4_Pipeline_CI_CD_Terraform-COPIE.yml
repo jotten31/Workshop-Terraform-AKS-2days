@@ -97,5 +97,5 @@ jobs:
 
       - name: Terraform Apply
         run: |
-          cd ./Terraform/Lab4_Pipeline_CI_CD_Terra
+          cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform
           terraform apply -lock=false "tf.plan" 
