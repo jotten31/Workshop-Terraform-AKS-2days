@@ -52,16 +52,15 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ArtifactTerraform
-          path: ./Terraform/Lab4_Pipeline_CI_CD_Terraform/monplan.tfplan
+          path: ./Terraform/Lab4_Pipeline_CI_CD_Terraform
            
- Terraform-apply:
-  runs-on: ubuntu-latest
-  environnement:
-      name: deployIac
-  needs:
-    - Terraform_Plan
-  step:
-
+  Terraform-apply:
+    runs-on: ubuntu-latest
+    environment:
+      name: deployIaC
+    needs:
+      - Terraform-plan
+    steps:
       - name: Checks-out du repository
         uses: actions/checkout@v2
 
@@ -69,6 +68,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.7
+
 
       - name: Terraform Init
           cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform      
